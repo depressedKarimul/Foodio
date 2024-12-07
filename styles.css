@@ -339,3 +339,10 @@ body {
       gap: 0rem;
   }
 }
+
+.nav-link-item{
+  transition: color 0.3s ease;
+}
+.nav-link-item:hover{
+  color: orange;
+}
