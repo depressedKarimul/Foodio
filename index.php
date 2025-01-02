@@ -18,8 +18,9 @@
             
         </ul>
         <div class="auth-buttons">
-            <a href="#" class="sign-in">Sign In</a>
-            <a href="#" class="sign-up">Sign Up</a>
+            <a href="#" class="sign-in"><img id="min" src="images/shopping-cart.png" alt=""></a>
+            <a href="php/login.php" class="sign-up">Log in</a>
+
         </div>
         <div class="hamburger">
             <span></span>
