@@ -1,3 +1,6 @@
+
+
+
 <?php
 // Enable error reporting for debugging
 ini_set('display_errors', 1);
@@ -28,32 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $address = $conn->real_escape_string(trim($_POST['address']));
     $user_type = $conn->real_escape_string(trim($_POST['user_type']));
 
-    // Handle file upload
-    $profilePicture = null;
-    if (isset($_FILES["profile_picture"]) && $_FILES["profile_picture"]["error"] == 0) {
-        $uploadDir = "C:/xampp/htdocs/Foodio/upload/"; // Ensure this folder exists
-        $fileName = time() . "_" . basename($_FILES["profile_picture"]["name"]); // Unique filename
-        $targetPath = $uploadDir . $fileName;
-
-        // Check file type
-        $allowedTypes = ["jpg", "jpeg", "png", "gif"];
-        $fileType = strtolower(pathinfo($targetPath, PATHINFO_EXTENSION));
-
-        if (in_array($fileType, $allowedTypes)) {
-            if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $targetPath)) {
-                $profilePicture = "upload/" . $fileName; // Save relative path
-            } else {
-                $errors[] = "Failed to upload profile picture.";
-            }
-        } else {
-            $errors[] = "Invalid file type. Only JPG, JPEG, PNG, and GIF are allowed.";
-        }
-    }
-
     // Insert data into the database if no errors
     if (empty($errors)) {
-        $sql = "INSERT INTO Users (name, email, password, phone_number, address, user_type, profile_picture)
-                VALUES ('$name', '$email', '$password', '$phone_number', '$address', '$user_type', '$profilePicture')";
+        $sql = "INSERT INTO Users (name, email, password, phone_number, address, user_type)
+                VALUES ('$name', '$email', '$password', '$phone_number', '$address', '$user_type')";
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to login.php after successful signup
@@ -67,9 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $conn->close();
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,13 +58,12 @@ $conn->close();
 </head>
 <body>
     <section>
-        <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+        <section>      <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>  
 
-       
         <div class="signin">
             <div class="content">
                 <h2>Sign Up</h2>
-                <form class="form" action="/Foodio/php/signup.php" method="POST" enctype="multipart/form-data">
+                <form class="form" action="/Foodio/php/signup.php" method="POST">
                     <div class="inputBox">
                         <input type="text" name="name" required>
                         <i>Full Name</i>
@@ -114,10 +91,6 @@ $conn->close();
                             <option value="delivery_man">Delivery Man</option>
                             <option value="customer">Customer</option>
                         </select>
-                    </div>
-                    <div class="inputBox">
-                        <input type="file" name="profile_picture" accept="image/*">
-                        <i><small>Profile Picture</small></i>
                     </div>
                     <div class="inputBox">
                         <input type="submit" value="Sign Up">

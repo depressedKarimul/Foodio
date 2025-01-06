@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9eae2; /* Matches the navbar background */
+}
+
+
+/* .........Nav bar..... */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f9eae2;
+ 
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.logo span {
+  color: orange;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 5px;
+  position: relative;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: orange;
+}
+
+.nav-links li a.active::after,
+.nav-links li a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: orange;
+  transition: width 0.3s ease;
+}
+#min{
+  /* height: 20px; */
+  width: 30px;
+}
+
+.auth-buttons .sign-in {
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.auth-buttons .sign-up {
+  text-decoration: none;
+  background-color: #FF6C17;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.auth-buttons a:hover {
+  opacity: 0.8;
+}
+
+/* Hamburger Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+
+
+
+/* ....... Hero Section....*/
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ margin-top: 100px;
+  padding: 0 50px;
+  background-color: #f9eae2;
+  gap: 300px; 
+}
+
+.hero-content {
+  max-width: 50%; /* Take half the width */
+  text-align: left;
+}
+
+.hero-content h1 {
+ 
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.hero-content p {
+  
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.explore-btn {
+ 
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: orange;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.explore-btn:hover {
+  background-color: #e69500;
+}
+
+/* Hero Image Styling */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%; /* Take half the width */
+  animation: rotate360 10s linear infinite; /* Spin animation */
+}
+
+@keyframes rotate360 {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.hero-image img {
+  width: 500px; /* Set a specific size for the circular image */
+  height: 500px;
+  object-fit: cover;
+  border-radius: 50%; /* Make the image circular */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* ...........popular-dishes section.......... */
+
+.popular-dishes {
+  text-align: center;
+  padding: 2rem 1rem;
+  /* position: relative; */
+}
+
+.dishes-title {
+  text-align: left;
+  margin-left: 220px;
+  font-size: 1.5rem;
+ 
+  color: #333;
+}
+
+.dishes-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dish-card {
+  margin-top: 60px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dish-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+ 
+  position: absolute;
+  left: 75px;
+  top: -50px;
+}
+.dis-card-img-shadow{
+  box-shadow: 0 20px 30px rgba(213, 151, 36, 0.9); 
+
+}
+.dishes-title {
+  margin-bottom: 900px;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.dish-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.dish-card h3 {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.price-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.price-add button {
+  background: #ff6a00;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.price-add button:hover {
+  background: #e65a00;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px){
+  /* Navigation Links */
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #f9eae2;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+  }
+
+  .nav-links.open {
+      display: flex;
+  }
+
+  .nav-links li {
+      margin: 10px 0;
+      text-align: center;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+
+  .auth-buttons {
+      display: none;
+  }
+
+  /* Hero Section */
+  .hero {
+      flex-direction: column;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      gap: 50px;
+  }
+
+  .hero-content {
+      max-width: 100%;
+  }
+
+  .hero-content h1 {
+      font-size: 2rem;
+  }
+
+  .hero-content p {
+      font-size: 1rem;
+  }
+
+  .hero-image img {
+      width: 350px;
+      height: 350px;
+  }
+
+  /* Dishes Section */
+  .dishes-title {
+      text-align: center;
+      margin-left: 1px;
+      margin-top: 10px;
+  }
+
+  .dishes-container {
+      gap: 0rem;
+  }
+}
+
+
+

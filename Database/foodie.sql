@@ -15,33 +15,19 @@ CREATE TABLE Users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Food_Categories table
-CREATE TABLE Food_Categories (
-    category_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Menu_Items table
+-- Menu_Items table 
 CREATE TABLE Menu_Items (
     item_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
-    image_url VARCHAR(255),
-    availability BOOLEAN DEFAULT 1,
-    category_id INT NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES Food_Categories(category_id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    availability BOOLEAN DEFAULT 1
 );
 
--- Orders table
+-- Orders table 
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    delivery_man_id INT,
     item_id INT NOT NULL,
     quantity INT NOT NULL,
     total_amount DECIMAL(10, 2) NOT NULL,
@@ -51,13 +37,11 @@ CREATE TABLE Orders (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    FOREIGN KEY (delivery_man_id) REFERENCES Users(user_id)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE,
     FOREIGN KEY (item_id) REFERENCES Menu_Items(item_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
 
 -- Payments table
 CREATE TABLE Payments (
@@ -71,19 +55,19 @@ CREATE TABLE Payments (
         ON UPDATE CASCADE
 );
 
+-- Delivery table without FOREIGN KEY for delivery_man_id
 CREATE TABLE Delivery (
     delivery_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
-    delivery_man_id INT, -- Allow NULL for ON DELETE SET NULL
+    delivery_man_id INT,  -- No FOREIGN KEY constraint here
     status ENUM('assigned', 'in_transit', 'delivered', 'failed') NOT NULL,
     delivery_time DATETIME,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
         ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY (delivery_man_id) REFERENCES Users(user_id)
-        ON DELETE SET NULL
         ON UPDATE CASCADE
 );
+
+
 -- Ratings_And_Reviews table
 CREATE TABLE Ratings_And_Reviews (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
