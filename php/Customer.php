@@ -156,9 +156,9 @@ $result = $conn->query($sql);
             </div>
             <ul class="menu dropdown-content" id="dropdownMenu">
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="customerProfile.php">Profile</a>
                 </li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="settings.php">Settings</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>

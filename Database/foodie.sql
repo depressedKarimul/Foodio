@@ -11,9 +11,9 @@ CREATE TABLE Users (
     phone_number VARCHAR(20),
     address TEXT,
     user_type ENUM('admin', 'delivery_man', 'customer') NOT NULL,
-    profile_picture VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Menu_Items table 
 CREATE TABLE Menu_Items (
@@ -55,18 +55,21 @@ CREATE TABLE Payments (
         ON UPDATE CASCADE
 );
 
--- Delivery table without FOREIGN KEY for delivery_man_id
+
+-- Delivery table
 CREATE TABLE Delivery (
     delivery_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
-    delivery_man_id INT,  -- No FOREIGN KEY constraint here
+    user_id INT NOT NULL, -- Tracks the user who received the delivery
     status ENUM('assigned', 'in_transit', 'delivered', 'failed') NOT NULL,
     delivery_time DATETIME,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
         ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
-
 
 -- Ratings_And_Reviews table
 CREATE TABLE Ratings_And_Reviews (
