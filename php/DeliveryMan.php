@@ -126,9 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'])) {
             </div>
             <ul class="menu dropdown-content" id="dropdownMenu">
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="ACProfile.php">Profile</a>
                 </li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="settings.php">Settings</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>

@@ -86,3 +86,53 @@ CREATE TABLE Ratings_And_Reviews (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+
+
+
+use this 3 table and fetch which user buy which product
+
+
+-- Users table
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20),
+    address TEXT,
+    user_type ENUM('admin', 'delivery_man', 'customer') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Orders table 
+CREATE TABLE Orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    item_id INT NOT NULL,
+    quantity INT NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status ENUM('pending', 'accepted', 'in_transit', 'delivered', 'cancelled') NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    delivery_date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (item_id) REFERENCES Menu_Items(item_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
+-- Payments table
+CREATE TABLE Payments (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    payment_method ENUM('cash', 'credit_card', 'mobile_payment') NOT NULL,
+    payment_status ENUM('pending', 'paid', 'failed') NOT NULL,
+    payment_date TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+

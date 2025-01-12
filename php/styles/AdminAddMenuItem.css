@@ -1,0 +1,90 @@
+/* General Styles */
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Reduced opacity */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  /* Adds a blur effect to the background */
+}
+
+.content h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Message Styles */
+.error,
+.success {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.error {
+  background-color: rgba(255, 229, 229, 0.8);
+  /* Adjusted opacity */
+  color: #d9534f;
+}
+
+.success {
+  background-color: rgba(229, 255, 229, 0.8);
+  /* Adjusted opacity */
+  color: #5cb85c;
+}
+
+/* Form Styles */
+form .inputBox {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Adjusted opacity */
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Checkbox Styles */
+form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+input:checked {
+  accent-color: #007bff;
+}
