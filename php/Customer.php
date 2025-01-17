@@ -196,6 +196,10 @@ $result = $conn->query($sql);
         </div>
     </div>
 
+    <?php
+    include 'Footer.html';
+    ?>
+
     <script src="main.js"></script>
 </body>
 </html>

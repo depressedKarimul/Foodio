@@ -170,6 +170,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'])) {
     <?php endif; ?>
 </div>
 
+
+<?php
+    include 'Footer.html';
+    ?>
+
     <script src="main.js"></script>
 </body>
 </html>

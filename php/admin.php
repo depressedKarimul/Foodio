@@ -451,6 +451,11 @@ $result = $conn->query($sql);
 
 
     
+
+<?php
+    include 'Footer.html';
+    ?>
+    
     <script src="main.js"></script>
 </body>
 

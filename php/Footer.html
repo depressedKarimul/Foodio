@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  
+<style>
+  .footer {
+    background-color: #f3f4f6;
+    padding: 40px;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    color: #1f2937;
+  }
+
+  .footer-section {
+    flex: 1 1 200px;
+    max-width: 300px;
+  }
+
+  .footer-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #4b5563;
+    font-weight: 600;
+  }
+
+  .footer-link {
+    display: block;
+    margin: 5px 0;
+    color: #1f2937;
+    text-decoration: none;
+  }
+
+  .footer-link:hover {
+    color: #3b82f6;
+  }
+
+  .newsletter {
+    flex: 1 1 100%;
+  }
+
+  .label-text {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+  }
+
+  .newsletter-input {
+    display: flex;
+    align-items: center;
+  }
+
+  .input-email {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+  }
+
+  .btn-subscribe {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .btn-subscribe:hover {
+    background-color: #2563eb;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+    }
+
+    .footer-section {
+      max-width: 100%;
+    }
+
+    .newsletter-input {
+      flex-direction: column;
+    }
+
+    .input-email, .btn-subscribe {
+      width: 100%;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<footer class="footer">
+  <nav class="footer-section">
+    <h6 class="footer-title">Services</h6>
+    <a href="#" class="footer-link">Branding</a>
+    <a href="#" class="footer-link">Design</a>
+    <a href="#" class="footer-link">Marketing</a>
+    <a href="#" class="footer-link">Advertisement</a>
+  </nav>
+  <nav class="footer-section">
+    <h6 class="footer-title">Company</h6>
+    <a href="#" class="footer-link">About us</a>
+    <a href="#" class="footer-link">Contact</a>
+    <a href="#" class="footer-link">Jobs</a>
+    <a href="#" class="footer-link">Press kit</a>
+  </nav>
+  <nav class="footer-section">
+    <h6 class="footer-title">Legal</h6>
+    <a href="#" class="footer-link">Terms of use</a>
+    <a href="#" class="footer-link">Privacy policy</a>
+    <a href="#" class="footer-link">Cookie policy</a>
+  </nav>
+  <form class="footer-section newsletter">
+    <h6 class="footer-title">Newsletter</h6>
+    <label for="email" class="label-text">Enter your email address</label>
+    <div class="newsletter-input">
+      <input type="email" id="email" placeholder="username@site.com" class="input-email" />
+      <button type="submit" class="btn-subscribe">Subscribe</button>
+    </div>
+  </form>
+</footer>
+
+  
+</body>
+</html>
